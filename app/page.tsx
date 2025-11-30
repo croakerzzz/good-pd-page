@@ -263,10 +263,11 @@ export default function Home() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/submit', {
+      const response = await fetch('http://89.104.74.65:3005/api/data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'x-api-key': 'prod-api-key-abc123',
         },
         body: JSON.stringify(formData),
       })
@@ -274,7 +275,7 @@ export default function Home() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Произошла ошибка при отправке формы')
+        throw new Error(data.message || data.error || 'Произошла ошибка при отправке формы')
       }
 
       setSuccess(true)
