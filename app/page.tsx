@@ -263,7 +263,7 @@ export default function Home() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('http://89.104.74.65:3005/api/data', {
+      const response = await fetch('https://api.pd-local.croakerzzz.ru/api/data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
